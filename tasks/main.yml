@@ -1,0 +1,14 @@
+---
+- name: Install dotdeb key
+  apt_key:
+    url: '{{ dotdeb_apt_key }}'
+    state: present
+  when: dotdeb_install_repositories
+
+- name: Add dotdeb repositories
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: dotdeb_apt_repositories
+  when: dotdeb_install_repositories

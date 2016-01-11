@@ -1,0 +1,9 @@
+---
+# Install and use dotdeb repositories
+dotdeb_install_repositories: Yes
+
+dotdeb_apt_key: 'http://www.dotdeb.org/dotdeb.gpg'
+
+dotdeb_apt_repositories:
+ - 'deb http://packages.dotdeb.org {{ ansible_distribution_release }} all'
+ - 'deb-src http://packages.dotdeb.org {{ ansible_distribution_release }} all'
