@@ -3,4 +3,9 @@
   remote_user: root
 
   roles:
-    - ansible-role-dotdeb
+    - ../../
+
+  post_tasks:
+    - name: 'Check if dotdeb is installed'
+      shell: sudo apt-cache policy | grep -q 'dotdeb' && (echo 'dotdeb is installed' && exit 0) || (echo 'dotdeb is not installed' && exit 1)
+      changed_when: false
