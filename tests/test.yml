@@ -1,11 +1,6 @@
 ---
-- hosts: all
-  remote_user: root
+- hosts: localhost
+  become: true
 
   roles:
-    - ../../
-
-  post_tasks:
-    - name: 'Check if dotdeb is installed'
-      shell: sudo apt-cache policy | grep -q 'dotdeb' && (echo 'dotdeb is installed' && exit 0) || (echo 'dotdeb is not installed' && exit 1)
-      changed_when: false
+    - ansible-role-common
