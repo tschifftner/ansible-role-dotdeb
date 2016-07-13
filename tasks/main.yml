@@ -3,7 +3,7 @@
   apt_key:
     url: '{{ dotdeb_apt_key }}'
     state: present
-  when: dotdeb_install_repositories
+  when: dotdeb_install_repositories and ansible_distribution == 'Debian'
 
 - name: Add dotdeb repositories
   apt_repository:
@@ -11,4 +11,4 @@
     state: present
     update_cache: yes
   with_items: '{{ dotdeb_apt_repositories }}'
-  when: dotdeb_install_repositories
+  when: dotdeb_install_repositories and ansible_distribution == 'Debian'

@@ -11,17 +11,6 @@ galaxy_info:
   - name: Debian
     versions:
     - jessie
-  - name: Ubuntu
-    versions:
-    - trusty
-    - xenial
-  - name: EL
-    versions:
-    - 7
-  - name: Fedora
-    versions:
-    - 23
   galaxy_tags:
     - debian
-    - ubuntu
     - dotdeb

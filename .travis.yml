@@ -44,15 +44,8 @@ script:
   # ansible-lint checks for best practice
   - ansible-lint tests/$SITE
 
-  # Make sure dotdeb is installed.
-  - >
-    apt-cache policy redis-server | grep dotdeb
-    && (echo 'dotdeb is installed' && exit 0)
-    || (echo 'dotdeb is not installed' && exit 1)
-
 after_failure:
   - ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
-  - apt-cache policy redis-server
   - ansible --version
   - ansible-lint --version
   - ansible -i 127.0.0.1, -m setup all -c local
