@@ -10,5 +10,5 @@
     repo: "{{ item }}"
     state: present
     update_cache: yes
-  with_items: dotdeb_apt_repositories
+  with_items: '{{ dotdeb_apt_repositories }}'
   when: dotdeb_install_repositories
